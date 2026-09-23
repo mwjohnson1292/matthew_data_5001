@@ -25,3 +25,7 @@ scikit-learn==1.9.0
 
 # --- file formats ---
 openpyxl==3.1.5
+
+# --- linting (week 5 warm-up; her pins) ---
+pylint>=3,<4
+nbqa>=0.13,<0.14
