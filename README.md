@@ -14,6 +14,7 @@ I have been *self-taught* learning Python up to this point. I would get an idea 
 |------|----------|
 | `assignments/` | One folder per assignment |
 | `notebooks/` | Jupyter notebooks |
+| `final_project/` | Final project proposal, data and code |
 
 ## Environment
 
