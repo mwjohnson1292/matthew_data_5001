@@ -2,8 +2,9 @@
 
 ### 1. Dataset
 **NASA Exoplanet Archive, Planetary Systems Composite Parameters table**: one row per confirmed
-exoplanet, **6,470 planets** as of November 16, 2026. I'll pull it from the archive's public API
-and commit a dated snapshot CSV so the analysis can be rerun.
+exoplanet, **6,470 planets** as of November 16, 2026, pulled from the archive's public API.
+**The dataset:** [`data/pscomppars_2026-11-16.csv`](data/pscomppars_2026-11-16.csv) (6,470 rows,
+15 columns), saved by [`pull_data.py`](pull_data.py) so the analysis can be rerun.
 
 I'll use the planets found by the four main discovery methods that have a recorded orbital
 distance: **5,916 planets** (transit 4,369, radial velocity 1,162, microlensing 288, imaging 97).
