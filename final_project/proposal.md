@@ -15,8 +15,10 @@ the Earth–Sun distance. For planets found by microlensing or imaging, the arch
 projected separation on the sky in this column instead.*
 
 ### 2. Hypothesis
-*The habitable zone, or "Goldilocks zone," is the band of distances around a star where liquid
-water could exist on a planet's surface.*
+*The habitable zone, or "Goldilocks zone," is the band of distances where liquid water could
+exist on a planet's surface, and because the archive records each star's brightness relative to
+the Sun, I find any star's zone by multiplying the Sun's (0.99 to 1.70 AU, Kopparapu et al. 2013)
+by the square root of the star's brightness.*
 
 **Null:** For the confirmed exoplanets in NASA's Exoplanet Archive that orbit in their star's
 habitable zone, there will be no difference between the discovery methods of planets around
@@ -57,10 +59,14 @@ holds, it says as much about how planets are found as about where they are.
   separate them.
 
 **Stage 4: The habitable zone.**
-- Flag each planet as inside or outside its star's habitable zone (the "Goldilocks zone," where
-  liquid water could exist on the surface), using the starlight the planet receives and the
-  limits from Kopparapu et al. (2013). Microlensing planets drop out of this stage because their
-  stars' brightness isn't recorded.
+- Flag each planet as inside or outside its star's habitable zone. The `st_lum` column holds each
+  star's brightness relative to the Sun, stored as a log, so brightness = 10^`st_lum`. Because it
+  is relative to the Sun, the Sun's zone edges work as constants for every star: inner edge =
+  0.99 × √brightness AU, outer edge = 1.70 × √brightness AU. The square root is there because
+  starlight fades with the square of distance. A planet is in the zone when its orbital distance
+  (`pl_orbsmax`) falls between the two edges. For example, Kepler-553 is 0.54 times as bright as
+  the Sun, so its zone is 0.72 to 1.24 AU, and Kepler-553 c, at 0.90 AU, is in it. Microlensing
+  planets drop out of this stage because their stars' brightness isn't recorded.
 - **The hypothesis test:** a **chi-square test** on the planets in the zone, comparing discovery
   method (transit or radial velocity) across small, cool stars and Sun-like stars, grouped by
   the star's temperature. If any group is too small for chi-square, Fisher's exact test.
